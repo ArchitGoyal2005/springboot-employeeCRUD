@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -26,7 +27,7 @@ public class EmployeeRestController {
     private JsonMapper jsonMapper;
 
     @Autowired
-    public EmployeeRestController(EmployeeService theEmployeeService, JsonMapper theJsonMapper) {
+    public EmployeeRestController(@Qualifier("employeeServiceImpl") EmployeeService theEmployeeService, JsonMapper theJsonMapper) {
         employeeService = theEmployeeService;
         jsonMapper = theJsonMapper;
     }
